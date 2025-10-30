@@ -1,0 +1,109 @@
+<head>
+<!-- design inspired by https://www.authkit.com/ -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+<!-- Incluir jQuery (opcional) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="icon" type="image/png" href="DS_WebFavicon.png">
+<link rel="stylesheet" href="Style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.7.0/dist/html-to-image.min.js"></script>
+
+
+
+</head> 
+
+<div class="header">
+  <!-- <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div> -->
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item"><a href="#" class="nav-link">Entrada</a></li>
+      <li class="nav-item"><a href="speakers/speakers.html" class="nav-link">Speakers</a></li>
+      <li class="nav-item"><a href="mapa/Mapa.html" class="nav-link">Mapa</a></li>
+      <li class="nav-item"><a href="info/Info.html" class="nav-link">Información</a></li>
+      <li class="nav-item"><a href="diamond/Diamond.html" class="nav-link">Diamond</a></li>
+    </ul>
+  </nav>
+  <div class="spotlight">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+</div>
+
+<canvas id="particleCanv  as"></canvas> 
+
+
+<div class="hero">
+  <!-- <div class="heroT"> -->
+    <div class="title">
+      <img src="/Recursos/img/LOGOLBS.png" alt="DIGITAL SUMMIT">
+    </div>
+  </div>
+  <div class="heroSubP">
+    <p>INGRESA TU CORREO, ACEPTA LOS TÉRMINOS Y CONDICIONES, Y DESCARGA TU BOLETO DE ACCESO AL EVENTO.</p>
+  </div>
+  <!-- Campo de correo y botón de enviar -->
+</div>
+<div class="input-container-custom">
+  <input type="email" placeholder="Ingresa tu correo" class="input-animated-custom" id="emailInputCustom">
+  <button class="submit-btn-custom" id="submitBtnCustom">Consultar</button>
+</div>
+
+<div class="use">
+  <label>
+    <input type="checkbox" id="consentCheckbox">Autorizo y acepto términos y condiciones
+    <a href="Terminos y Condiciones DS.pdf">Leer documento</a>
+  </label>
+</div>
+
+
+
+<!-- Este contenedor es necesario para mostrar los mensajes de éxito o error -->
+<div id="message" style="color: #00FF8C;"></div>
+
+
+    <!-- Contenedor del boleto -->
+
+    <div class="ticket-container" id="ticketContainer">
+      <!-- <button class="close-btn" id="closeBtn">&times;</button> -->
+      <div id="ticket" class="ticket">
+        <img id="qrCode" class="qr-code" src="" alt="Código QR">
+      </div>
+
+      <!-- Botones de acciones del boleto -->
+      <div class="ticket-actions">
+        <button id="downloadBtn" class="btn-small">Descargar</button>
+        <a href="https://pay.hotmart.com/W95072609C?off=ooc1md57&checkoutMode=10" style="text-decoration: none;"><button id="serDiamond" class="btn-small">Ser Diamond</button></a>
+        <button id="cancelBtn" class="btn-small">Cerrar</button>
+      </div>
+
+      <!-- Input para número de teléfono con indicativo -->
+      <input type="tel" id="phoneInput" class="input-phone" placeholder="Número telefónico con indicativo" style="display: none;">
+      <button id="sendBtn" class="btn-send" style="display: none;">Enviar</button>
+    </div>
+
+    <div id="emailNotFoundModalUnique" class="modal-unique">
+      <div class="modal-content-unique">
+        <span class="close-btn-unique" onclick="cerrarModalUnique()">&times;</span>
+       <!-- <h2>Ups, parece ser que este correo no se encuentra en los correos de compra</h2>-->
+        <h5>¡Ups! Este correo no está registrado para Digital Summit.<br></h5>
+          <p><br>Por favor, verifica que estás ingresando el correo con el que realizaste la compra.<br><br>Si crees que hay un error, puedes contactar a nuestro equipo de soporte o realizar tu compra directamente haciendo clic en "Comprar mi Ticket".
+          </p>
+        <div class="modal-buttons-unique">
+          <button onclick="hablarConSoporteUnique()">Hablar con soporte</button>
+          <button onclick="realizarCompraUnique()">Comprar mi Ticket</button>
+        </div>
+      </div>
+    </div>
+
+
+<div class="mountains">
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+<div class="hero-spacer"></div>
+<script src="app.js"></script>
