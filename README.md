@@ -1,1 +1,1 @@
-# DigitalSummit
+# Luque Business Summit
