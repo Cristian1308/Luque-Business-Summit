@@ -1,3 +1,12 @@
+    .hero {
+        top: 6em !important;
+    }
+    .heroP {
+        top: 20.6em !important;
+    }
+    .heroSubP {
+        top: 18em !important;
+    }
 /* @import url('https://fonts.cdnfonts.com/css/hubot-sans'); */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
 *{ 
