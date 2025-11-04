@@ -12,26 +12,24 @@
 <script src="https://cdn.jsdelivr.net/npm/html-to-image@1.7.0/dist/html-to-image.min.js"></script>
 
 
-
+  
 </head> 
 
-<div class="header">
-  <!-- <div class="mid-spot" onclick="document.body.classList.toggle('gold');"></div> -->
+<header class="menu-header">
+  <button class="menu-toggle" aria-label="Abrir menú" onclick="document.querySelector('.nav-list').classList.toggle('active')">
+    <span style="font-size:2em;">&#9776;</span>
+  </button>
   <nav class="nav">
     <ul class="nav-list">
-      <li class="nav-item"><a href="#" class="nav-link">Entrada</a></li>
-      <li class="nav-item"><a href="speakers/speakers.html" class="nav-link">Speakers</a></li>
-      <li class="nav-item"><a href="mapa/Mapa.html" class="nav-link">Mapa</a></li>
-      <li class="nav-item"><a href="info/Info.html" class="nav-link">Información</a></li>
-      <li class="nav-item"><a href="diamond/Diamond.html" class="nav-link">Diamond</a></li>
+      <li class="nav-item"><a href="../Index.html" class="nav-link">Entrada</a></li>
+      <li class="nav-item"><a href="../speakers/speakers.html" class="nav-link">Speakers</a></li>
+      <li class="nav-item"><a href="../mapa/Mapa.html" class="nav-link">Mapa</a></li>
+      <li class="nav-item"><a href="#" class="nav-link">Información</a></li>
+      <li class="nav-item"><a href="../diamond/Diamond.html" class="nav-link">Diamond</a></li>
     </ul>
   </nav>
-  <div class="spotlight">
-    <div></div>
-    <div></div>
-    <div></div>
-  </div>
-</div>
+</header>
+
 
 <canvas id="particleCanv  as"></canvas> 
 
@@ -107,3 +105,28 @@
 </div>
 <div class="hero-spacer"></div>
 <script src="app.js"></script>
+
+<!-- Cierra el menú al hacer click fuera o en un enlace (opcional) -->
+<script>
+(function() {
+  const navList = document.querySelector('.nav-list');
+  const toggle = document.querySelector('.menu-toggle');
+  // Toggle menu
+  toggle.addEventListener('click', function(e) {
+    e.stopPropagation();
+    navList.classList.toggle('active');
+  });
+  // Cierra al hacer click en un enlace
+  navList.addEventListener('click', function(e) {
+    if (e.target.classList.contains('nav-link')) {
+      navList.classList.remove('active');
+    }
+  });
+  // Cierra al hacer click fuera
+  document.addEventListener('click', function(e) {
+    if (navList.classList.contains('active') && !navList.contains(e.target) && !toggle.contains(e.target)) {
+      navList.classList.remove('active');
+    }
+  });
+})();
+</script>

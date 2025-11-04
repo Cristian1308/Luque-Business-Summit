@@ -1,3 +1,150 @@
+@media (max-width: 900px) {
+  .menu-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100vw;
+    height: auto;
+    background: #23272b;
+    z-index: 9999;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    border-radius: 0 0 8px 8px;
+    padding: 0.5em 0.5em;
+    margin-top: 0;
+  }
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2em;
+    margin-left: 1em;
+    cursor: pointer;
+    z-index: 10000;
+  }
+  .nav {
+    width: 100vw;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    height: auto;
+    display: flex;
+  }
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100vw;
+    align-items: stretch;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+    height: auto;
+    background: #23272b;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    border-radius: 0 0 8px 8px;
+  }
+  .nav-list.active {
+    display: flex;
+  }
+  .nav-link {
+    font-size: 1.1rem;
+    color: #fff;
+    text-align: left;
+    width: 100vw;
+    padding: 1em 2em;
+    border-bottom: 1px solid #333;
+    background: none;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-link:hover {
+    background: #181a1b;
+    color: #69E4FF;
+  }
+  .nav-link:last-child {
+    border-bottom: none;
+  }
+}
+@media (min-width: 901px) {
+  .menu-toggle {
+    display: none !important;
+  }
+  .nav-list {
+    display: flex !important;
+    flex-direction: row;
+    gap: 3em;
+    background: transparent;
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+    width: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+  }
+  .nav-link {
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+    width: auto;
+    padding: 0.7em 1em;
+    border: none;
+    background: none;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .nav-link:hover {
+    color: #69E4FF;
+    background: none;
+  }
+}
+canvas#particleCanvas, .spotlight {
+    pointer-events: none;
+}
+/* Menú fijo y siempre visible */
+.menu-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 1000;
+        background: transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.menu-header .nav {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.menu-header .nav-list {
+    display: flex;
+    gap: 3em;
+    list-style: none;
+    margin: 0;
+    padding: 1em 0;
+}
+.menu-header .nav-link {
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.menu-header .nav-link:hover {
+    color: #69E4FF;
+}
     .hero {
         top: 6em !important;
     }
@@ -25,17 +172,15 @@ body {
     margin: 0;
     font-family: 'Montserrat', Arial, sans-serif;
     background-repeat: no-repeat;
-    background-size: auto; /* Tamaño automático - mantiene tamaño original */
+    background-size: cover; /* Ocupa todo el fondo en cualquier pantalla */
     background-position: center; /* Centra la imagen */
     background-blend-mode: darken;
     font-size: max(calc(var(--_size) * 0.03), 10px);
     --_factor: min(600px, 100vh);
     --_size: min(var(--_factor), 100vw);
-    max-width: 100%; 
-    overflow: hidden;               /* Desactiva el desplazamiento */
-    position: fixed;                /* Mantiene la posición fija */
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
+    max-width: 100vw;
 }
 
 body.gold .header h2 ,
@@ -75,7 +220,7 @@ h2 a {
     justify-content: center;
     align-items: center;
     
-    width: 100%;
+    width: 100vw;
     color: #00BEBE;
     padding: 2em; 
     opacity: 1;
@@ -561,8 +706,8 @@ p {
 
     /* Estilos del boleto */    
     .ticket {
-        width: 22.81em;                   /* Ancho del boleto en pantallas normales */
-        height: 36em;                     /* Alto del boleto en pantallas normales */
+        width: 22.81em;                   /* Ancho del boleto in pantallas normales */
+        height: 36em;                     /* Alto del boleto in pantallas normales */
         background: url('DS/ENTRADA/PRUEBA-03.png') no-repeat center;
         background-size: contain;         /* Ajusta la imagen completa dentro del contenedor sin recortes */
         background-position: center;      /* Centra la imagen dentro del contenedor */
